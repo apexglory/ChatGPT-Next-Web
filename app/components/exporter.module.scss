@@ -129,10 +129,11 @@
 
       .logo {
         position: absolute;
-        top: 0px;
-        left: 0px;
-        height: 50%;
-        transform: scale(1.5);
+        left: 130px;
+        top: 20px;
+        width: 45%;
+        aspect-ratio: 2.8;
+        opacity: 0.3;
       }
 
       .main-title {

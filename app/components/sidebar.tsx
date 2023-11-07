@@ -10,6 +10,7 @@ import AddIcon from "../icons/add.svg";
 import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
+import LeftIcon from "../icons/left.svg";
 import DragIcon from "../icons/drag.svg";
 
 import Locale from "../locales";
@@ -29,6 +30,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
 import { showConfirm, showToast } from "./ui-lib";
+import NextImage from "next/image";
+import ChipanalogLogo from "@/app/icons/chipanalog-logo.png";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -143,19 +146,32 @@ export function SideBar(props: { className?: string }) {
         shouldNarrow && styles["narrow-sidebar"]
       }`}
     >
+      <IconButton
+        onClick={() => {
+          location.href = "http://www.chipanalog.com/";
+        }}
+        title={"返回首页"}
+        className={styles["leave-icon"]}
+        icon={<LeftIcon />}
+        shadow
+      />
       <div className={styles["sidebar-header"]} data-tauri-drag-region>
         <div className={styles["sidebar-title"]} data-tauri-drag-region>
-          ChatGPT Next
+          川土微电子
         </div>
-        <div className={styles["sidebar-sub-title"]}>
-          Build your own AI assistant.
-        </div>
+        <div className={styles["sidebar-sub-title"]}>硅基未来智能问答</div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
-          <ChatGptIcon />
+          {/*<ChatGptIcon />*/}
+          <NextImage
+            src={ChipanalogLogo.src}
+            alt="logo"
+            layout={"fill"}
+            objectFit={"cover"}
+          />
         </div>
       </div>
 
-      <div className={styles["sidebar-header-bar"]}>
+      {/*<div className={styles["sidebar-header-bar"]}>
         <IconButton
           icon={<MaskIcon />}
           text={shouldNarrow ? undefined : Locale.Mask.Name}
@@ -177,7 +193,7 @@ export function SideBar(props: { className?: string }) {
           shadow
         />
       </div>
-
+*/}
       <div
         className={styles["sidebar-body"]}
         onClick={(e) => {
@@ -206,11 +222,11 @@ export function SideBar(props: { className?: string }) {
               <IconButton icon={<SettingsIcon />} shadow />
             </Link>
           </div>
-          <div className={styles["sidebar-action"]}>
+          {/* <div className={styles["sidebar-action"]}>
             <a href={REPO_URL} target="_blank" rel="noopener noreferrer">
               <IconButton icon={<GithubIcon />} shadow />
             </a>
-          </div>
+          </div>*/}
         </div>
         <div>
           <IconButton

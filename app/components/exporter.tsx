@@ -19,6 +19,8 @@ import LoadingIcon from "../icons/three-dots.svg";
 import ChatGptIcon from "../icons/chatgpt.png";
 import ShareIcon from "../icons/share.svg";
 import BotIcon from "../icons/bot.png";
+import ChuantuLogo from "../icons/chuantu-logo.png";
+import ChipanalogLogo from "../icons/chipanalog-logo.png";
 
 import DownloadIcon from "../icons/download.svg";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -204,7 +206,7 @@ export function MessageExporter() {
               ))}
             </Select>
           </ListItem>
-          <ListItem
+          {/*<ListItem
             title={Locale.Export.IncludeContext.Title}
             subTitle={Locale.Export.IncludeContext.SubTitle}
           >
@@ -217,7 +219,7 @@ export function MessageExporter() {
                 );
               }}
             ></input>
-          </ListItem>
+          </ListItem>*/}
         </List>
         <MessageSelector
           selection={selection}
@@ -354,13 +356,13 @@ export function PreviewActions(props: {
           icon={<DownloadIcon />}
           onClick={props.download}
         ></IconButton>
-        <IconButton
+        {/*      <IconButton
           text={Locale.Export.Share}
           bordered
           shadow
           icon={loading ? <LoadingIcon /> : <ShareIcon />}
           onClick={share}
-        ></IconButton>
+        ></IconButton>*/}
       </div>
       <div
         style={{
@@ -384,7 +386,7 @@ function ExportAvatar(props: { avatar: string }) {
   if (props.avatar === DEFAULT_MASK_AVATAR) {
     return (
       <img
-        src={BotIcon.src}
+        src={ChuantuLogo.src}
         width={30}
         height={30}
         alt="bot"
@@ -437,13 +439,13 @@ export function ImagePreviewer(props: {
     showToast(Locale.Export.Image.Toast);
     const dom = previewRef.current;
     if (!dom) return;
-  
+
     const isApp = getClientConfig()?.isApp;
-  
+
     try {
       const blob = await toPng(dom);
       if (!blob) return;
-  
+
       if (isMobile || (isApp && window.__TAURI__)) {
         if (isApp && window.__TAURI__) {
           const result = await window.__TAURI__.dialog.save({
@@ -459,7 +461,7 @@ export function ImagePreviewer(props: {
               },
             ],
           });
-  
+
           if (result !== null) {
             const response = await fetch(blob);
             const buffer = await response.arrayBuffer();
@@ -506,18 +508,16 @@ export function ImagePreviewer(props: {
         <div className={styles["chat-info"]}>
           <div className={styles["logo"] + " no-dark"}>
             <NextImage
-              src={ChatGptIcon.src}
+              src={ChipanalogLogo.src}
               alt="logo"
-              width={50}
-              height={50}
+              layout={"fill"}
+              objectFit={"cover"}
             />
           </div>
 
           <div>
-            <div className={styles["main-title"]}>ChatGPT Next Web</div>
-            <div className={styles["sub-title"]}>
-              github.com/Yidadaa/ChatGPT-Next-Web
-            </div>
+            <div className={styles["main-title"]}>川土微电子</div>
+            <div className={styles["sub-title"]}>硅基未来智能问答</div>
             <div className={styles["icons"]}>
               <ExportAvatar avatar={config.avatar} />
               <span className={styles["icon-space"]}>&</span>

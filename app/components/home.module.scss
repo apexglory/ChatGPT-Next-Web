@@ -143,6 +143,8 @@
   position: absolute;
   right: 0;
   bottom: 18px;
+  width: 50%;
+  aspect-ratio: 2.8;
 }
 
 .sidebar-title {
@@ -235,6 +237,7 @@
   .sidebar-sub-title {
     display: none;
   }
+
   .sidebar-logo {
     position: relative;
     display: flex;
@@ -337,4 +340,9 @@
 
 .rtl-screen {
   direction: rtl;
+}
+
+.leave-icon {
+  width: 40px;
+  color: var(--primary);
 }
