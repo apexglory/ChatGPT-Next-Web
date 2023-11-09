@@ -41,7 +41,7 @@ export class ChatGPTApi implements LLMApi {
     if (!openaiUrl.startsWith("http") && !openaiUrl.startsWith(apiPath)) {
       openaiUrl = "https://" + openaiUrl;
     }
-    return [openaiUrl, path].join("/");
+    return [openaiUrl].join("/");
   }
 
   extractMessage(res: any) {
