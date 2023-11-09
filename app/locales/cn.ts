@@ -59,7 +59,7 @@ const cn = {
         light: "亮色模式",
         dark: "深色模式",
       },
-      Prompt: "快捷指令",
+      Prompt: "快速提问",
       Masks: "所有面具",
       Clear: "清除聊天",
       Settings: "对话设置",
@@ -310,7 +310,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的提问",
-    BotHello: "有什么可以帮你的吗",
+    BotHello: "您好，我是川土微智能助理，请问有什么问题？",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
