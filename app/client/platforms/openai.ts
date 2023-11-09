@@ -41,7 +41,7 @@ export class ChatGPTApi implements LLMApi {
     if (!openaiUrl.startsWith("http") && !openaiUrl.startsWith(apiPath)) {
       openaiUrl = "https://" + openaiUrl;
     }
-    return [openaiUrl].join("/");
+    return [openaiUrl, path].join("/");
   }
 
   extractMessage(res: any) {
@@ -186,6 +186,7 @@ export class ChatGPTApi implements LLMApi {
       options.onError?.(e as Error);
     }
   }
+
   async usage() {
     const formatDate = (d: Date) =>
       `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d
@@ -278,4 +279,5 @@ export class ChatGPTApi implements LLMApi {
     }));
   }
 }
+
 export { OpenaiPath };
