@@ -86,6 +86,8 @@ export class ChatGPTApi implements LLMApi {
         signal: controller.signal,
         headers: getHeaders(),
       };
+      console.log("chatPath", chatPath);
+      console.log("chatPayload", chatPayload);
 
       // make a fetch request
       const requestTimeoutId = setTimeout(
@@ -105,7 +107,6 @@ export class ChatGPTApi implements LLMApi {
         };
 
         controller.signal.onabort = finish;
-
         fetchEventSource(chatPath, {
           ...chatPayload,
           async onopen(res) {
@@ -186,7 +187,6 @@ export class ChatGPTApi implements LLMApi {
       options.onError?.(e as Error);
     }
   }
-
   async usage() {
     const formatDate = (d: Date) =>
       `${d.getFullYear()}-${(d.getMonth() + 1).toString().padStart(2, "0")}-${d
@@ -279,5 +279,4 @@ export class ChatGPTApi implements LLMApi {
     }));
   }
 }
-
 export { OpenaiPath };

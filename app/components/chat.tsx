@@ -509,13 +509,13 @@ export function ChatActions(props: {
         }}
       />
 
-      {/*  <ChatAction
+      <ChatAction
         onClick={() => setShowModelSelector(true)}
         text={currentModel}
         icon={<RobotIcon />}
-      />*/}
+      />
 
-      {/*{showModelSelector && (
+      {showModelSelector && (
         <Selector
           defaultSelectedValue={currentModel}
           items={models.map((m) => ({
@@ -532,7 +532,7 @@ export function ChatActions(props: {
             showToast(s[0]);
           }}
         />
-      )}*/}
+      )}
     </div>
   );
 }
@@ -772,13 +772,13 @@ function _Chat() {
   };
   const onRightClick = (e: any, message: ChatMessage) => {
     // copy to clipboard
-    if (selectOrCopy(e.currentTarget, message.content)) {
+    /*    if (selectOrCopy(e.currentTarget, message.content)) {
       if (userInput.length === 0) {
         setUserInput(message.content);
       }
 
       e.preventDefault();
-    }
+    }*/
   };
 
   const deleteMessage = (msgId?: string) => {
